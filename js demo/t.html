@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			background: #000;
+			margin:0px;
+			padding:0px;
+		}
+		
+		#content{
+			width: 434px;
+			height:538px;
+			margin:100px 500px;
+		}
+		.pic{
+			width: 100px;
+			height:100px;
+			float: left;
+			margin:2px;
+			border:2px solid #333;
+		}
+		.pic img{
+			width: 100px;
+			height: 100px;
+		}
+		#fullpic{
+			background: silver;
+			width: 310px;
+			height:310px;
+			float: left;
+			margin:5px;
+			border:2px solid #333;
+		}
+		#fullpic img{
+			width: 310px;
+			height:310px;
+			display: none;
+		}
+		
+	</style>
+	<script type="text/javascript">
+		function full(n){
+			for (var i = 1; i <=11; i++) {
+				if(document.getElementById('fullpic'+i).style.display="block"){
+					document.getElementById('fullpic'+i).style.display="none";
+				}
+			};
+			document.getElementById('fullpic'+n).style.display="block";
+			
+		}
+
+	</script>
+</head>
+<body>
+	
+		<!-- content开始 -->
+		<div id="content">
+			<div id="fullpic">
+				<img src="png/1.png" alt="" id="fullpic1">
+				<img src="png/2.png" alt="" id="fullpic2">
+				<img src="png/3.png" alt="" id="fullpic3">
+				<img src="png/4.png" alt="" id="fullpic4">
+				<img src="png/5.png" alt="" id="fullpic5">
+				<img src="png/6.png" alt="" id="fullpic6">
+				<img src="png/7.png" alt="" id="fullpic7">
+				<img src="png/8.png" alt="" id="fullpic8">
+				<img src="png/9.png" alt="" id="fullpic9">
+				<img src="png/10.png" alt="" id="fullpic10">
+				<img src="png/11.png" alt="" id="fullpic11">
+			</div>
+			<div class="pic" id="pic1"><img src="png/1.png" onmouseover="full(1)" ></div>
+			<div class="pic" id="pic2"><img src="png/2.png" onmouseover="full(2)" ></div>
+			<div class="pic" id="pic3"><img src="png/3.png" onmouseover="full(3)" ></div>
+			<div class="pic" id="pic4"><img src="png/4.png" onmouseover="full(4)" ></div>
+			<div class="pic" id="pic5"><img src="png/5.png" onmouseover="full(5)" ></div>
+			<div class="pic" id="pic6"><img src="png/6.png" onmouseover="full(6)" ></div>
+			<div class="pic" id="pic7"><img src="png/7.png" onmouseover="full(7)" ></div>
+			<div class="pic" id="pic8"><img src="png/8.png" onmouseover="full(8)" ></div>
+			<div class="pic" id="pic9"><img src="png/9.png" onmouseover="full(9)" ></div>
+			<div class="pic" id="pic10"><img src="png/10.png" onmouseover="full(10)" ></div>
+			<div class="pic" id="pic11"><img src="png/11.png" onmouseover="full(11)" ></div>
+			
+		</div>
+		
+</body>
+</html>

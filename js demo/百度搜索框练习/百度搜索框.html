@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style type="text/css">
+		body,ul,li {
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+
+		a {
+			text-decoration: none;
+			color: #000;
+		}
+
+		/*条目高亮*/
+		.highlight {
+			background: #eee;
+		}
+
+		#container {
+			width: 960px;
+			margin:50px auto;
+			text-align: center;
+			position: relative;
+		}
+
+		#search_wraper {
+			height: 38px;
+			line-height: 38px;
+			position: relative;
+		}
+
+		#container img {
+			width: 300px;
+			display: block;
+			margin:0px auto;			
+		}
+
+		#container input[type=text] {			
+			width: 521px;
+			height: 20px;
+			padding: 8px 7px;
+			font-size: 16px;
+			border:none;
+			border:1px solid #ccc;
+			position: relative;	
+			left: 9px;				
+			vertical-align: top;	
+		}
+
+		#container input[type=text]:hover {
+			border:1px solid #999;
+		}
+
+		#container input[type=text]:focus {
+			background: #F3FAFF;
+		}
+
+		#container input[type=button] {			
+			outline: none;
+			width: 100px;
+			height: 38px;
+			line-height: 38px;
+			background: #3385ff;
+			color: #fff;
+			border:none;
+			font-size: 16px;
+			cursor: pointer;
+			vertical-align: top;
+		}
+
+		#container input[type=button]:hover {
+			background: #2D76E3;
+		}
+
+		#container #searchTips {
+			position: absolute;
+			width: 535px;
+			left: 167px;
+			border:1px solid #ccc;
+			background: #fff;		
+		}
+
+		#container #searchTips li  {			
+			font-size: 12px;
+			color: #789;
+			height: 30px;
+			line-height: 30px;
+			text-align: left;
+			padding-left: 5px;
+			cursor: pointer;
+		}
+
+		#container #searchTips li:hover  {
+			background: #eee;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		
+		window.onload = function() {			
+
+			var keyIndex = -1;//提示列表索引
+
+			//搜索输入框
+			var searchInput = document.getElementById('searchInput');
+			//搜索内容提示
+			var searchTips = document.getElementById('searchTips');
+			//搜索内容列表
+			var tipItems = searchTips.getElementsByTagName('li');
+
+			//设置内容列表的自定义属性
+			for (var i = 0;i < tipItems.length -1;i ++) {
+				tipItems[i].setAttribute('index',i);				
+			}
+			
+			//搜索框获得焦点事件
+			searchInput.onfocus = function() {
+
+				searchTips.style.display = 'block';
+
+			};
+
+			//搜索框单击事件
+			searchInput.onclick = function(e) {
+				//阻止事件冒泡传播
+				e = e || window.event;
+				e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
+			}
+
+			//在文档任意位置单击事件
+			document.onclick = function() {	
+				
+				resetSearchTips();
+			};
+			
+			for (var i = 0;i < tipItems.length - 1;i ++) {
+
+				//搜索提示的条目单击事件
+				tipItems[i].onclick = function() {
+					searchInput.value = this.innerHTML;
+				};
+				
+				//搜索提示的条目鼠标移上事件
+				tipItems[i].onmouseover = function() {
+					keyIndex = parseInt(this.getAttribute('index'));
+				};
+			}
+
+			//文档键盘按下事件
+			document.onkeydown = function(e) {
+				
+				//必须搜索提示已经显示
+				if (searchTips.style.display == 'none')
+					return;
+
+				e = e || window.event;
+
+				//esc取消提示
+				if (e.keyCode == 27) {
+					resetSearchTips();
+				}
+
+				//回车
+				if (e.keyCode == 13) {
+					console.log(keyIndex);
+					searchInput.value = tipItems[keyIndex].innerHTML;
+					resetSearchTips();
+				}
+
+				//上箭头
+				if (e.keyCode == 38) {
+					keyIndex --;
+
+					if (keyIndex < 0)
+						keyIndex = 9;
+					
+					highlightItem(keyIndex);
+				} 
+
+				//下箭头
+				if (e.keyCode == 40) {
+					keyIndex ++;
+
+					if (keyIndex > 9)
+						keyIndex = 0;
+
+					highlightItem(keyIndex);					
+				}
+
+			}
+
+			/*提示列表高亮*/
+			function highlightItem(index) {
+
+				//其他失去高亮
+				for (var i = 0;i < tipItems.length -1;i ++) {
+					if (tipItems[i].className == 'highlight') {
+						tipItems[i].className = '';
+						break;
+					}					
+				}		
+
+				//即时发生错误也会正常继续执行
+				try {
+					//传入index下标高亮
+					tipItems[index].className = 'highlight';
+				} catch (e) {
+
+				}				
+			}
+
+			/*重置搜索提示*/
+			function resetSearchTips() {
+				searchTips.style.display = 'none';
+				keyIndex = -1;
+				highlightItem(-1);
+			}
+
+		};
+	</script>
+</head>
+<body>
+	
+	<div id="container">
+		
+		<img src="bdlogo.png" alt="">
+		
+		<div id="search_wraper">
+			
+			<input type="text" id="searchInput">
+			<input type="button" value="百度一下">
+			
+			<ul id="searchTips" style="display:none;">
+				<li>这是提示文字1</li>
+				<li>这是提示文字2</li>
+				<li>这是提示文字3</li>
+				<li>这是提示文字4</li>
+				<li>这是提示文字5</li>
+				<li>这是提示文字6</li>
+				<li>这是提示文字7</li>
+				<li>这是提示文字8</li>
+				<li>这是提示文字9</li>
+				<li>这是提示文字10</li>
+				<li style="text-align:right;background:#F3FAFF">
+					<a href="#">关闭历史</a>
+					<span>|</span>
+					<a href="#">删除历史</a>
+					<span>|</span>
+					<a href="#">更多历史</a>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#main{
+			width: 100%;
+			height:100%;
+			background: #fff;
+			text-align: center;
+
+		}
+		#icon1{
+			background:#690052 ;
+			width: 20px;
+			height: 20px;
+			float: left;
+			margin-left:50px;
+		}
+		#icon2{
+			background:#FFA400 ;
+			width: 20px;
+			height: 20px;
+			float: left;
+			margin-left:50px;
+		}
+		#icon3{
+			background:#339963 ;
+			width: 20px;
+			height: 20px;
+			float: left;
+			margin-left:50px;
+		}
+		
+		.littlewhite{
+			width: 6px;
+			height:6px;
+			margin:7px;
+			background: #fff;
+			display: none;
+		}
+		
+	</style>
+	<script type="text/javascript">
+		function change1(){
+				document.getElementById('main').style.background="#993366";
+				document.getElementById('littlewhite1').style.display="block";
+				document.getElementById('littlewhite2').style.display="none";
+				document.getElementById('littlewhite3').style.display="none";
+		}
+		function change2(){
+				document.getElementById('main').style.background="#CC9966";
+				document.getElementById('littlewhite2').style.display="block";
+				document.getElementById('littlewhite1').style.display="none";
+				document.getElementById('littlewhite3').style.display="none";
+			}
+		function change3(){
+				document.getElementById('main').style.background="#99CC99";
+				document.getElementById('littlewhite3').style.display="block";
+				document.getElementById('littlewhite1').style.display="none";
+				document.getElementById('littlewhite2').style.display="none";
+			}
+	</script>
+	
+	
+</head>
+
+<body id="main">
+	<div>
+		<div id="icon1" class="icon" onclick="change1()">
+			<div id="littlewhite1" class="littlewhite"></div>
+		</div>
+		<div id="icon2" class="icon" onclick="change2()">
+			<div id="littlewhite2" class="littlewhite"></div>
+		</div>
+		<div id="icon3" class="icon" onclick="change3()">
+			<div id="littlewhite3" class="littlewhite"></div>
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,71 @@
+/*整体标签页容器*/
+#notice {
+	width: 298px;
+	height: 98px;
+	border:1px solid #ccc;
+	margin: 5px;
+	overflow: hidden;
+}
+
+/*标题区*/
+#notice-title {
+	position: relative;
+	background: #f7f7f7;
+	height: 27px;	
+}
+
+#notice-title ul {
+	position: absolute;
+	left: -1px;
+	width: 300px;	
+	height: 27px;	
+}
+
+#notice-title ul li {
+	width: 58px;
+	height: 26px;
+	line-height: 26px;
+	float: left;
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+	padding: 0px 1px;	
+}
+
+/*标题高亮样式*/
+#notice-title ul li.select {
+	background: #fff;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom-color:#fff;
+	padding: 0px;
+}
+
+#notice-title ul li a {
+	display: block;		
+}
+
+#notice-title ul li a:hover {
+	color: orange;
+}
+
+/*内容区*/
+#notice-content .content {
+	padding: 2px;	
+}
+
+.notice .content ul {
+	overflow: hidden;
+}
+
+#notice-content .content li {
+	float: left;
+	width: 139px;
+	line-height: 25px;
+	padding: 0px 4px;
+	white-space: nowrap;
+	overflow-x: hidden;	
+}
+
+#notice-content .content li a:hover {
+	color: orange;
+}

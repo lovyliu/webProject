@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width:500px;
+			height:500px;
+			border:1px solid red;
+			background: red;
+		}
+		.style{
+			width:500px;
+			height:500px;
+			border:1px solid red;
+			background: red;
+		}
+		
+	</style>
+	<script type="text/javascript">
+		function m1(){
+ 			var d=document.getElementById('div1');
+ 			d.style.width="800px";
+		}
+		function m2(){
+			var d=document.getElementById('div1');
+ 			d.style.height="800px";
+		}
+		function m3(){
+ 			var d=document.getElementById('div1');
+ 			d.style.background="blue";
+		}
+		function m4(){
+			var d=document.getElementById('div1');
+ 			d.style.display="none";
+		}
+		function m5(){
+			var d=document.getElementById('div1');
+ 			d.className="style";
+ 	// 		d.style.width="500px";
+ 	// 		d.style.height="500px";
+ 	// 		d.style.background="red";
+ 	// 		d.style.display="block";
+		}
+	</script>
+	
+	
+</head>
+
+<body>
+	<div id="div1" class="style">	
+	</div>
+	<button onclick="m1()" id="btn1">widder</button>
+	<button onclick="m2()" id="btn2">higher</button>
+	<button onclick="m3()"id="btn3">change color</button>
+	<button onclick="m4()"id="btn4">hide</button>
+	<button onclick="m5()"id="btn5">reset</button>
+</body>
+</html

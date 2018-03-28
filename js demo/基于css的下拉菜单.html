@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin: 0px;
+			padding: 0px;
+			font-size: 14px;
+		}
+
+		ul,li {list-style: none;}
+		
+		/*导航菜单*/
+		#menu {background: #000;height: 40px}
+			
+		/*一级菜单*/		
+		#menu ul li {float: left;line-height: 40px;width: 120px;position: relative;}
+		#menu ul li a {color: #fff;text-decoration: none;display: block;text-align: center;}
+		#menu ul li a:hover {color: #000;background: #ccc}
+		/*依赖css hover选择器实现*/
+		#menu  ul li:hover > ul {display: block;}
+		
+		/*二级菜单*/
+		#menu ul li ul {display:none;background: #000;position: absolute;top:40px;left:0px;}
+		#menu ul li ul li {float: none;border-bottom: 1px solid #ccc}
+
+		/*三级菜单*/
+		#menu ul li ul li ul {display:none;background: #000;position: absolute;left: 120px;top:0px;}
+	</style>
+</head>
+<body>
+	<div id="menu">
+		<ul>
+			<li><a href="#">菜单1</a></li>
+			<li>
+				<a href="#">菜单2</a>
+				<ul>
+					<li><a href="#">二级菜单1</a></li>
+					<li><a href="#">二级菜单2</a></li>					
+				</ul>
+			</li>
+			<li><a href="#">菜单3</a>
+				<ul>
+					<li><a href="#">二级菜单1</a></li>
+					<li><a href="#">二级菜单2&#10132;</a>
+						<ul>
+							<li><a href="#">三级菜单1</a></li>
+							<li><a href="#">三级菜单2</a></li>
+							<li><a href="#">三级菜单3</a></li>
+							<li><a href="#">三级菜单4</a></li>
+						</ul>
+					</li>
+					<li><a href="#">二级菜单3</a></li>					
+				</ul>
+			</li>
+			<li><a href="#">菜单4</a></li>
+			<li><a href="#">菜单5</a></li>
+		</ul>
+	</div>
+</body>
+</html>

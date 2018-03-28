@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			background: #CCFFFF;
+		}
+		#main{
+			margin-left:350px;
+			margin-top:150px;
+			float:left;
+			border:1px solid #ccc;
+			padding:100px;
+		}
+		#text1,#text2{
+			width:220px;
+			height:350px;
+			margin-right: 50px;
+			line-height: 45px;
+			border:1px solid silver;
+			float:left;
+			font-size: 18px;
+			font-weight: 550;
+			background: #99CCCC;
+			text-align: center;
+			/*padding:10px;*/
+		}
+		#text1 p{
+			display: block;
+			background: #99CCCC;
+		}
+		#text2 p{
+			display: none;
+			background: #99CCCC;
+		}
+		#middle{
+
+			float:left;
+			margin-top: 50px;
+			margin-right: 50px;
+			width:100px;
+			height:150px;
+		}
+		#middle button{
+			width: 100px;
+			height:30px;
+			font-size: 24px;
+			font-weight: 600;
+			margin-top: 30px;
+			border:1px solid blue;
+			background: #fff;
+			font-size: 14px;
+		}
+	</style>
+	<script type="text/javascript">
+		function select(n){
+			document.getElementById("p"+ n).style.background="silver";
+
+		}
+		function select2(n){
+			document.getElementById('pp'+n).style.background="silver";
+
+		}
+		
+		function move(n){
+			var boo=false;
+			if(n==2){
+				for (var j = 1; j <= 5; j++) {
+					document.getElementById('p'+j).style.display="none";
+					document.getElementById('pp'+j).style.display="block";
+					document.getElementById('p'+j).style.background="#99CCCC";
+					boo=true;
+				}
+			}
+			else if(n==4){
+				for (var j = 1; j <=5; j++) {
+					document.getElementById('p'+j).style.display="block";
+					document.getElementById('pp'+j).style.display="none";
+					document.getElementById('pp'+j).style.background="#99CCCC";
+					boo=true;
+				}
+			 }
+			else if(n==1){
+				for(var j = 1; j <=5; j++) {
+					if(document.getElementById('p'+j).style.background=='silver')
+					{
+						document.getElementById('p'+j).style.display="none";
+						document.getElementById('pp'+j).style.display="block";
+						document.getElementById('p'+j).style.background="#99CCCC";
+						boo=true;
+					}
+				}
+
+			}
+			else{
+				for(var j = 1; j <=5; j++){
+					if(document.getElementById('pp'+j).style.background=="silver")
+					{
+						document.getElementById('p'+j).style.display="block";
+						document.getElementById('pp'+j).style.display="none";
+						document.getElementById('pp'+j).style.background="#99CCCC";
+						boo=true;
+						
+					}
+				}	
+			}
+			if(!boo){alert("请选择项目！");}
+		}
+
+	</script>
+</head>
+<body>
+	<div id="main">
+		<div id="text1">
+			<p id="p1" onclick="select(1)">JAVA</p>
+			<p id="p2" onclick="select(2)">VB</p>
+			<p id="p3" onclick="select(3)">C++</p>
+			<p id="p4" onclick="select(4)">ORACLE</p>
+			<p id="p5" onclick="select(5)">MYSQL</p>
+		</div>
+		<div id="middle">
+			<button onclick="move(1)" id="btn1">&nbsp;&gt;&nbsp;</button>
+			<button onclick="move(2)" id="btn2">&gt;&gt;</button>
+			<button onclick="move(3)" id="btn3">&nbsp;&lt;&nbsp;</button>
+			<button onclick="move(4)" id="btn4">&lt;&lt;</button>
+		</div>
+		<div id="text2">
+			<p id="pp1" onclick="select2(1)">JAVA</p>
+			<p id="pp2" onclick="select2(2)">VB</p>
+			<p id="pp3" onclick="select2(3)">C++</p>
+			<p id="pp4" onclick="select2(4)">ORACLE</p>
+			<p id="pp5" onclick="select2(5)">MYSQL</p>
+		</div>
+		<br style="clear:both">
+	</div>
+</body>
+</html>

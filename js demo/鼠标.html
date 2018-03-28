@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+
+	<style type="text/css">
+		div{
+			width:702px;
+			height:282px;
+			border:1px solid red;
+			margin:auto;
+			float:left;
+		}
+		.pic {
+			width: 128px;
+			height: 128px;
+			margin: 5px;
+			float: left;	
+			background-color: #ccc;
+			opacity: 0.5;
+			border: 1px solid #333;
+		}
+		
+	</style>
+	
+</head>
+
+<body>
+	<div>
+		<div id="pic1" class="pic">
+			<img src="img/1.jpg" onmouseover="highLight(1)" onmouseout="lowLight(1)">
+		</div>
+
+		<div id="pic2" class="pic">
+			<img src="img/2.jpg" onmouseover="highLight(2)"  onmouseout="lowLight(2)">
+		</div>
+
+		<div id="pic3" class="pic">
+			<img src="img/3.jpg" onmouseover="highLight(3)"  onmouseout="lowLight(3)">
+		</div>
+
+		<div id="pic4" class="pic">
+			<img src="img/4.jpg" onmouseover="highLight(4)"  onmouseout="lowLight(4)">
+		</div>
+
+		<div id="pic5" class="pic">
+			<img src="img/5.jpg" onmouseover="highLight(5)"  onmouseout="lowLight(5)">
+		</div>
+
+		<div id="pic6" class="pic">
+			<img src="img/6.jpg" onmouseover="highLight(6)"  onmouseout="lowLight(6)">
+		</div>
+
+		<div id="pic7" class="pic">
+			<img src="img/7.jpg" onmouseover="highLight(7)"  onmouseout="lowLight(7)">
+		</div>
+
+		<div id="pic8" class="pic">
+			<img src="img/8.jpg" onmouseover="highLight(8)"  onmouseout="lowLight(8)">
+		</div>
+
+		<div id="pic9" class="pic">
+			<img src="img/9.jpg" onmouseover="highLight(9)"  onmouseout="lowLight(9)">
+		</div>
+
+		<div id="pic0" class="pic">
+			<img src="img/10.jpg" onmouseover="highLight(0)"  onmouseout="lowLight(0)">
+		</div>
+
+	</div>
+</body>
+<script type="text/javascript">
+	function highLight(n) {
+			document.getElementById("pic"+n).style.opacity = "1";
+		}
+
+		function lowLight(n) {
+			document.getElementById("pic"+n).style.opacity = "0.5";
+		}
+
+
+	</script>
+</html>
